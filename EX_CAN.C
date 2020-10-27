@@ -10,8 +10,14 @@
 #use delay(clock=20000000)
 #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
 
-#DEFINE CAN_DO_DEBUG TRUE
-#DEFINE CAN_USE_EXTENDED_ID FALSE
+#DEFINE CAN_DO_DEBUG          TRUE
+#DEFINE CAN_USE_EXTENDED_ID    FALSE
+
+//#DEFINE Set_Standard_125k_Baud    TRUE   //FUNCIONA
+//#DEFINE Set_500K_Baud             TRUE   //Configurar a TRUE para usar .. NO FUNCIONA A 500KBPS
+#DEFINE Set_250K_Baud               TRUE   //Configurar a TRUE para usar .. FUNCIONA
+//#DEFINE Set_125K_Baud             FALSE   //Configurar a TRUE para usar  -- AUN NO PROBADO
+
 
 #include "can-18F4580.c"
 

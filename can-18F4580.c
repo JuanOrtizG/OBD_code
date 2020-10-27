@@ -271,6 +271,30 @@ void can_init(void) {
 // More information can be found in the PIC18F4580 datasheet section 23.9
 ////////////////////////////////////////////////////////////////////////
 void can_set_baud(void) {
+   
+   #ifdef Set_125K_Baud {
+      BRGCON1 = 0x07;
+      BRGCON2 = 0xA0;      //modificado 5/11/07 para usar CAN a 125 KBps
+      BRGCON3 = 0x02;      //con reloj a 10 MHz
+   }
+   #endif
+ 
+   #ifdef Set_250K_Baud {
+      BRGCON1 = 0x03;
+      BRGCON2 = 0xA0;      //modificado 5/11/07 para usar CAN a 250 KBps
+      BRGCON3 = 0x02;      //con reloj a 10 MHz
+   }
+   #endif
+ 
+   #ifdef Set_500K_Baud {
+      BRGCON1 = 0x00;
+      BRGCON2 = 0x3A;      //modificado 5/11/07 para usar CAN a 500 KBps
+      BRGCON3 = 0x00;      //con reloj a 10 MHz
+   }
+   #endif
+   
+   #ifdef Set_Standard_125k_Baud {
+   printf ("Configuración standar de velocidad 125kbps"); 
    BRGCON1.brp=CAN_BRG_PRESCALAR;
    BRGCON1.sjw=CAN_BRG_SYNCH_JUMP_WIDTH;
 
@@ -281,6 +305,8 @@ void can_set_baud(void) {
 
    BRGCON3.seg2ph=CAN_BRG_PHASE_SEGMENT_2;
    BRGCON3.wakfil=CAN_BRG_WAKE_FILTER;
+   }
+   #endif
 }
 
 
