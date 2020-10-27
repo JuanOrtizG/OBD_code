@@ -1,45 +1,9 @@
-/////////////////////////////////////////////////////////////////////////
-////                            EX_CAN.C                             ////
-////                                                                 ////
-//// Example of CCS's CAN library, using the PIC18Fxx8.  This        ////
-//// example was tested using MCP250xxx CAN Developer's Kit.         ////
-////                                                                 ////
-//// Connect pin B2 (CANTX) to the CANTX pin on the open NODE A of   ////
-//// the developer's kit, and connect pin B3 (CANRX) to the CANRX    ////
-//// pin on the open NODE A.                                         ////
-////                                                                 ////
-//// NODE B has an MCP250xxx which sends and responds certan canned  ////
-//// messages.  For example, hitting one of the GPX buttons on       ////
-//// the development kit causes the MCP250xxx to send a 2 byte       ////
-//// message with an ID of 0x290.  After pressing one of those       ////
-//// buttons with this firmware you should see this message          ////
-//// displayed over RS232.                                           ////
-////                                                                 ////
-//// NODE B also responds to certain CAN messages.  If you send      ////
-//// a request (RTR bit set) with an ID of 0x18 then NODE B will     ////
-//// respond with an 8-byte message containing certain readings.     ////
-//// This firmware sends this request every 2 seconds, which NODE B  ////
-//// responds.                                                       ////
-////                                                                 ////
-//// If you install Microchip's CANKing software and use the         ////
-//// MCP250xxx , you can see all the CAN traffic and validate all    ////
-//// experiments.                                                    ////
-////                                                                 ////
-//// For more documentation on the CCS CAN library, see can-18xxx8.c ////
-////                                                                 ////
-////  Jumpers:                                                       ////
-////     PCM,PCH    pin C7 to RS232 RX, pin C6 to RS232 TX           ////
-////                                                                 ////
-////  This example will work with the PCM and PCH compilers.         ////
-/////////////////////////////////////////////////////////////////////////
-////        (C) Copyright 1996,2003 Custom Computer Services         ////
-//// This source code may only be used by licensed users of the CCS  ////
-//// C compiler.  This source code may only be distributed to other  ////
-//// licensed users of the CCS C compiler.  No other use,            ////
-//// reproduction or distribution is permitted without written       ////
-//// permission.  Derivative programs created using this software    ////
-//// in object code form are not restricted in any way.              ////
-/////////////////////////////////////////////////////////////////////////
+/*
+@autor: Juan Ortiz
+@versión: 
+@fecha:
+@Tema: Protocolo de Comunicación CAN
+*/
 
 #include "18F4580.h"
 #fuses HS,NOPROTECT,NOLVP,NOWDT
