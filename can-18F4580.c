@@ -271,42 +271,66 @@ void can_init(void) {
 // More information can be found in the PIC18F4580 datasheet section 23.9
 ////////////////////////////////////////////////////////////////////////
 void can_set_baud(void) {
-   
-   #ifdef Set_125K_Baud {
-      BRGCON1 = 0x07;
-      BRGCON2 = 0xA0;      //modificado 5/11/07 para usar CAN a 125 KBps
-      BRGCON3 = 0x02;      //con reloj a 10 MHz
-   }
-   #endif
- 
-   #ifdef Set_250K_Baud {
-      BRGCON1 = 0x03;
-      BRGCON2 = 0xA0;      //modificado 5/11/07 para usar CAN a 250 KBps
-      BRGCON3 = 0x02;      //con reloj a 10 MHz
-   }
-   #endif
- 
-   #ifdef Set_500K_Baud {
+
+   #ifdef Set_1000K_Baud{
       BRGCON1 = 0x00;
-      BRGCON2 = 0x3A;      //modificado 5/11/07 para usar CAN a 500 KBps
-      BRGCON3 = 0x00;      //con reloj a 10 MHz
+      BRGCON2 = 0xD0;
+      BRGCON3 = 0x82;
    }
    #endif
    
-   #ifdef Set_Standard_125k_Baud {
-   printf ("Configuración standar de velocidad 125kbps"); 
-   BRGCON1.brp=CAN_BRG_PRESCALAR;
-   BRGCON1.sjw=CAN_BRG_SYNCH_JUMP_WIDTH;
-
-   BRGCON2.prseg=CAN_BRG_PROPAGATION_TIME;
-   BRGCON2.seg1ph=CAN_BRG_PHASE_SEGMENT_1;
-   BRGCON2.sam=CAN_BRG_SAM;
-   BRGCON2.seg2phts=CAN_BRG_SEG_2_PHASE_TS;
-
-   BRGCON3.seg2ph=CAN_BRG_PHASE_SEGMENT_2;
-   BRGCON3.wakfil=CAN_BRG_WAKE_FILTER;
+   #ifdef Set_500K_Baud{
+      BRGCON1 = 0x00;
+      BRGCON2 = 0xF0;
+      BRGCON3 = 0x86;
    }
    #endif
+   
+   #ifdef Set_250K_Baud{
+      BRGCON1 = 0x41;
+      BRGCON2 = 0xF1;
+      BRGCON3 = 0x85;
+   }
+   #endif
+   
+   #ifdef Set_200K_Baud{
+      BRGCON1 = 0x01;
+      BRGCON2 = 0xFA;
+      BRGCON3 = 0x87;
+   }
+   #endif
+   
+   #ifdef Set_125K_Baud{
+      BRGCON1 = 0x03;
+      BRGCON2 = 0xF0;
+      BRGCON3 = 0x86;
+   }
+   #endif
+   /*
+   #define MCP_16MHz_1000kBPS_CFG1 (0x00)
+   #define MCP_16MHz_1000kBPS_CFG2 (0xD0)
+   #define MCP_16MHz_1000kBPS_CFG3 (0x82)
+   
+   #define MCP_16MHz_500kBPS_CFG1 (0x00)
+   #define MCP_16MHz_500kBPS_CFG2 (0xF0)
+   #define MCP_16MHz_500kBPS_CFG3 (0x86)
+   
+   #define MCP_16MHz_250kBPS_CFG1 (0x41)
+   #define MCP_16MHz_250kBPS_CFG2 (0xF1)
+   #define MCP_16MHz_250kBPS_CFG3 (0x85)
+   
+   #define MCP_16MHz_200kBPS_CFG1 (0x01)
+   #define MCP_16MHz_200kBPS_CFG2 (0xFA)
+   #define MCP_16MHz_200kBPS_CFG3 (0x87)
+   
+   
+   
+   #define MCP_16MHz_125kBPS_CFG1 (0x03)
+   #define MCP_16MHz_125kBPS_CFG2 (0xF0)
+   #define MCP_16MHz_125kBPS_CFG3 (0x86)
+   */
+
+   
 }
 
 

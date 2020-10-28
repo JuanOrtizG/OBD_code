@@ -7,16 +7,18 @@
 
 #include "18F4580.h"
 #fuses HS,NOPROTECT,NOLVP,NOWDT
-#use delay(clock=20000000)
+#use delay(clock=16000000)
+//#use delay(oscillator=20Mhz, clock = 80Mhz)
 #use rs232(baud=9600, xmit=PIN_C6, rcv=PIN_C7)
 
 #DEFINE CAN_DO_DEBUG          TRUE
 #DEFINE CAN_USE_EXTENDED_ID    FALSE
 
-//#DEFINE Set_Standard_125k_Baud    TRUE   //FUNCIONA
-//#DEFINE Set_500K_Baud             TRUE   //Configurar a TRUE para usar .. NO FUNCIONA A 500KBPS
-#DEFINE Set_250K_Baud               TRUE   //Configurar a TRUE para usar .. FUNCIONA
-//#DEFINE Set_125K_Baud             FALSE   //Configurar a TRUE para usar  -- AUN NO PROBADO
+//#DEFINE Set_1000K_Baud            TRUE
+//#DEFINE Set_500K_Baud             TRUE   //
+#DEFINE Set_250K_Baud             TRUE   //
+//#DEFINE Set_200K_Baud             TRUE   //
+//#DEFINE Set_125K_Baud             TRUE   //
 
 
 #include "can-18F4580.c"
@@ -36,7 +38,7 @@ void main() {
 
 //send a request (tx_rtr=1) for 8 bytes of data (tx_len=8) from id 24 (tx_id=24)
    int out_data[8];
-   int32 tx_id=4;
+   int32 tx_id=12;
    int1 tx_rtr=0;
    int1 tx_ext=0;
    int tx_len=8;
