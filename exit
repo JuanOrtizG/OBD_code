@@ -1,0 +1,29 @@
+[33mcommit ee349bc4ff0f47fd255ad971175f9a995bb98965[m[33m ([m[1;36mHEAD -> [m[1;32mapp[m[33m)[m
+Author: Juan <juanrodrigortiz@gmail.com>
+Date:   Mon Nov 2 11:37:46 2020 -0300
+
+    Creamos 2 funciones obd_get y obd_put para induciendo una librería
+
+[33mcommit 5ece266238aca31fe4c863d40e5e556c9cd2e6b8[m[33m ([m[1;32mapp-obd2-exp[m[33m)[m
+Author: Juan <juanrodrigortiz@gmail.com>
+Date:   Wed Oct 28 12:58:14 2020 -0300
+
+    Modificacion del hardware con crystal de 16Mhz, usamos el mcp2551 con el pin8 a masa, funciona las velocidades de 500kbps y 250kbps que son las mas importantes
+
+[33mcommit 306941b836db9a2664d7f612549d0d862dff7417[m
+Author: Juan <juanrodrigortiz@gmail.com>
+Date:   Mon Oct 26 23:02:07 2020 -0300
+
+    Version OK para 125standard y 250 bps
+
+[33mcommit deeb515eba133d91a7e6b80a2ebff312b11fbcb9[m
+Author: Juan <juanrodrigortiz@gmail.com>
+Date:   Mon Oct 26 21:29:00 2020 -0300
+
+    Agregamos encabezado de archivo
+
+[33mcommit b8e37b34efeeeae409b8c39f05f878f9c4e24a88[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Juan <juanrodrigortiz@gmail.com>
+Date:   Mon Oct 26 21:25:37 2020 -0300
+
+    Version estandar del firmware
