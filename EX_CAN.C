@@ -15,8 +15,8 @@
 #DEFINE CAN_USE_EXTENDED_ID    FALSE
 
 //#DEFINE Set_1000K_Baud            TRUE
-//#DEFINE Set_500K_Baud             TRUE   //
-#DEFINE Set_250K_Baud             TRUE   //
+#DEFINE Set_500K_Baud             TRUE   //
+//#DEFINE Set_250K_Baud             TRUE   //
 //#DEFINE Set_200K_Baud             TRUE   //
 //#DEFINE Set_125K_Baud             TRUE   //
 
@@ -46,6 +46,16 @@ int32 obd_get(int pid)
      #define uint32_t unsigned int32
      #define int16_t int16
      //uint8_t value[4];
+   /*
+   Rutina de testing
+   
+   */
+   int counter=0;
+   for (counter=0; counter<=7; counter++){
+      printf("%x - ", in_data[counter]);
+   }
+   printf("\n\r");
+   
    
    switch (pid) {
        default:
@@ -231,30 +241,34 @@ void main() {
    can_init();
    enable_interrupts(INT_TIMER2);   //enable timer2 interrupt
    enable_interrupts(GLOBAL);       //enable all interrupts (else timer2 wont happen)
-
+   
+   
+   
    printf("\n Running... \n");
 
    while(TRUE)
    {
       
+      
       //void obd_put(int id, int pid, int1 trama)
       obd_put(ID_QUERY,VEHICLE_SPEED,TRAMA_ESTANDAR);
-      delay_ms(500);
-      printf ("\n  VEHICLE_SPEED: %ld KM/h ->  ",obd_get(VEHICLE_SPEED)) ;
+      delay_ms(100);
+      printf ("VEHICLE_SPEED: %ld KM/h. \n\r ",obd_get(VEHICLE_SPEED)) ;
       delay_ms(50);
        
       
       obd_put(ID_QUERY,ENGINE_RPM,TRAMA_ESTANDAR);
-      delay_ms(500);
-      printf ("ENGINE_RPM: %ld RPM.",obd_get(ENGINE_RPM)) ;
+      delay_ms(100);
+      printf ("ENGINE_RPM: %ld rpm.\n\r",obd_get(ENGINE_RPM)) ;
       delay_ms(50);
       
       
+         
       obd_put(ID_QUERY,ENGINE_FUEL_RATE,TRAMA_ESTANDAR);
       delay_ms(500);
-      printf ("FUEL_RATE: %ld LxKM...",obd_get(ENGINE_FUEL_RATE)) ;
+      printf ("FUEL_RATE: %ld LxKM. \n\r",obd_get(ENGINE_FUEL_RATE)) ;
       delay_ms(50);
-      
+     
      
       
       
